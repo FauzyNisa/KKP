@@ -29,57 +29,35 @@
             <div class="col-xl-12 col-lg-7 mb-4">
               <div class="card">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Invoice</h6>
-                  <a class="m-0 float-right btn btn-danger btn-sm" href="#">View More <i
+                  <h6 class="m-0 font-weight-bold text-primary">Data Portofolio</h6>
+                  <a class="m-0 float-right btn btn-danger btn-sm" href="<?php echo base_url().'admin/data_portofolio' ?>">View More <i
                       class="fas fa-chevron-right"></i></a>
                 </div>
                 <div class="table-responsive">
                   <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                       <tr>
-                        <th>Order ID</th>
-                        <th>Customer</th>
-                        <th>Item</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th>ID</th>
+                        <th>Judul</th>
+                        <th>Tag</th>
+                        <th>Deskripsi</th>
+                        <th>Waktu</th>
+                        <th>Harga</th>
+                        <th>Foto</th>
                       </tr>
                     </thead>
                     <tbody>
+                      <?php foreach ($portofolio as $p){ ?>
                       <tr>
-                        <td><a href="#">RA0449</a></td>
-                        <td>Udin Wayang</td>
-                        <td>Nasi Padang</td>
-                        <td><span class="badge badge-success">Delivered</span></td>
-                        <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
+                        <td><?php echo $p->id_port; ?></td>
+                        <td><?php echo $p->judul; ?></td>
+                        <td><?php echo $p->tag; ?></td>
+                        <td><?php echo $p->deskripsi; ?></td>
+                        <td><?php echo $p->waktu; ?></td>
+                        <td>Rp <?php echo number_format($p->harga,2,',','.'); ?></td>
+                        <td> <a href="<?php echo base_url().'images/'.$p->foto; ?>" class="zoom" > <img src="<?php echo base_url().'images/'.$p->foto; ?>" width="100px" /></a></td>
                       </tr>
-                      <tr>
-                        <td><a href="#">RA5324</a></td>
-                        <td>Jaenab Bajigur</td>
-                        <td>Gundam 90' Edition</td>
-                        <td><span class="badge badge-warning">Shipping</span></td>
-                        <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">RA8568</a></td>
-                        <td>Rivat Mahesa</td>
-                        <td>Oblong T-Shirt</td>
-                        <td><span class="badge badge-danger">Pending</span></td>
-                        <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">RA1453</a></td>
-                        <td>Indri Junanda</td>
-                        <td>Hat Rounded</td>
-                        <td><span class="badge badge-info">Processing</span></td>
-                        <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                      </tr>
-                      <tr>
-                        <td><a href="#">RA1998</a></td>
-                        <td>Udin Cilok</td>
-                        <td>Baby Powder</td>
-                        <td><span class="badge badge-success">Delivered</span></td>
-                        <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                      </tr>
+                      <?php }?>
                     </tbody>
                   </table>
                 </div>
@@ -88,13 +66,6 @@
             </div>
           </div>
           <!--Row-->
-
-          <div class="row">
-            <div class="col-lg-12 text-center">
-              <p>Do you like this template ? you can download from <a href="https://github.com/indrijunanda/RuangAdmin"
-                  class="btn btn-primary btn-sm" target="_blank"><i class="fab fa-fw fa-github"></i>&nbsp;GitHub</a></p>
-            </div>
-          </div>
 
         </div>
         <!---Container Fluid-->

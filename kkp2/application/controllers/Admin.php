@@ -12,7 +12,8 @@ class Admin extends CI_Controller{
 	}
 
 	function index(){
-		$this->load->view('admin/dashboard');
+		$data['portofolio'] = $this->m->ambil_data_dash('portofolio_t')->result();
+		$this->load->view('admin/dashboard', $data);
 	}
 
 	function data_portofolio(){

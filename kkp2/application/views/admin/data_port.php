@@ -18,9 +18,8 @@
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Data Portofolio</h1>
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="./">Home</a></li>
-              <li class="breadcrumb-item">Tables</li>
-              <li class="breadcrumb-item active" aria-current="page">DataTables</li>
+              <li class="breadcrumb-item"><a href="<?php echo base_url().'admin' ?>">Dashboard</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Data Portofolio</li>
             </ol>
           </div>
 
@@ -46,22 +45,23 @@
             <?php endif; ?>
               <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">DataTables</h6>
-                  <?php echo form_open('admin/data_portofolio') ?>
-                    <div class="form-group row">
-                      <label class="m-0 font-weight-bold text-primary">Sort By</label>
-                      <h6 class="m-0 font-weight-bold text-primary">
-                        <select class="form-control form-control-sm mb-3" name="sort">
-                          <option value="Normal">pilih tag</option>
+                  <h6 class="m-0 font-weight-bold text-primary">Data Portofolio</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">
+                    <?php echo form_open('admin/data_portofolio') ?>
+                      <div class="input-group">
+                        <select class="form-control" name="sort">
+                          <option value="Normal">Sort By</option>
                           <option value="Tag 1">Tag 1</option>
                           <option value="Tag 2">Tag 2</option>
                         </select>
-                      </h6>
-                      <input class="btn btn-primary" type="submit" value="pilih" name="pilih">
-                    </div>
-                  <?php echo form_close() ?>
+                        <div class="input-group-append">
+                          <input class="btn btn-primary" type="submit" value="pilih" name="pilih">
+                        </div>
+                      </div>
+                    <?php echo form_close() ?>
+                  </h6>
                   <h6 class="m-0 font-weight-bold text-primary"><a href="<?php echo base_url().'admin/tambah_portofolio'?>" class="btn btn-primary"> <i class="fa fa-plus-circle"></i></a></h6>
-                </div>
+                  </div>
                 <div class="table-responsive p-3">
                   <table class="table align-items-center table-flush" id="dataTable">
                     <thead class="thead-light">
@@ -101,7 +101,7 @@
                         <td><?php echo $p->deskripsi; ?></td>
                         <td><?php echo $p->waktu; ?></td>
                         <td>Rp <?php echo number_format($p->harga,2,',','.'); ?></td>
-                        <td><img src="<?php echo base_url().'images/'.$p->foto; ?>" width="100px" /></td>
+                        <td> <a href="<?php echo base_url().'images/'.$p->foto; ?>" class="zoom" ><img src="<?php echo base_url().'images/'.$p->foto; ?>" width="100px" /></a></td>
                         <td>
                           <a href="<?php echo base_url().'admin/edit_portofolio/'.$p->id_port; ?>" class="btn btn-info">Edit</a>
                           <a onclick="return confirm('Apakaha anda yakin akan menghapus portofolio <?php echo $p->judul; ?> ?');" href="<?php echo base_url().'admin/hapus_portofolio/'.$p->id_port; ?>" class="btn btn-danger">Hapus</a>
@@ -116,15 +116,6 @@
             
           </div>
           <!--Row-->
-
-          <!-- Documentation Link -->
-          <div class="row">
-            <div class="col-lg-12">
-              <p>DataTables is a third party plugin that is used to generate the demo table below. For more information
-                about DataTables, please visit the official <a href="https://datatables.net/" target="_blank">DataTables
-                  documentation.</a></p>
-            </div>
-          </div>
 
         </div>
         <!---Container Fluid-->

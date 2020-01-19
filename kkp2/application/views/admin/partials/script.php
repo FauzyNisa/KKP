@@ -10,6 +10,9 @@
   <!-- Page level plugins -->
   <script src="<?php echo base_url(); ?>assets/admin/vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/jquery.fancybox-1.3.4/fancybox/jquery.easing-1.4.pack.js"></script>
+  <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/jquery.fancybox-1.3.4/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
 
   <!-- Page level custom scripts -->
   <script>
@@ -20,6 +23,9 @@
 
     $(document).ready(function () {
       $('#dataTable').DataTable(); // ID From dataTable 
-      $('#dataTableHover').DataTable(); // ID From dataTable with Hover
+    });
+
+    $(document).ready(function(){
+      $(".zoom").fancybox();
     });
   </script>

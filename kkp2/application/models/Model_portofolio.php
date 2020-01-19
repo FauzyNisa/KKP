@@ -27,6 +27,10 @@ class Model_portofolio extends CI_Model{
         return $this->db->select('*')->from($tabel)
             ->where('tag',$keyword)
         ->get();
+    }
 
+    function ambil_data_dash($tabel){
+        $this->db->order_by('id_port', 'DESC');
+        return $this->db->get($tabel, 5);
     }
 }
